@@ -17,7 +17,7 @@ spec:
       containers:
       - name: node-app
         image: developer9844/express:4.0
-        imagePullPolicy: Never
+        imagePullPolicy: Always
         resources:
           limits:
             memory: "128Mi"
