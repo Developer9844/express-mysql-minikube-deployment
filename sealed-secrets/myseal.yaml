@@ -1,0 +1,16 @@
+---
+apiVersion: bitnami.com/v1alpha1
+kind: SealedSecret
+metadata:
+  creationTimestamp: null
+  name: mrsecret
+  namespace: default
+spec:
+  encryptedData:
+    keyword: AgCuZAZAPDUVw2/bwLnwyYN+cpWE++qQedjVOS6f3abFbsNYuEOvExAyg7v6O3ztBOjEkgLRZL1gXUmJ+MRxOEw2ES19MDxsBkK5FIR+UOroUgr5O87Sn0I95wMCCuu1sxGdX9yuTEBs12zwGMdwoqoJUnVQUk78nuRN/cOWocDc9vfRDxhj7Z3xiAP8Y2s1+8szZH0AZ55H6xYOnRTb6zq7RmzpPpt706ri5d9KbfPleWv50gWQjX6vbEaO1ePbljqJmsK5hIM7vlN1H6xmLcV1gXJA65OzXqJeCOE6ARQ4nVvJ8sIU32ez61gFDBp28QDuArSIHHbmx/BIM6FzzggEmpkZOsmMw3raaXQAMvOhrZYB4EV9X6OvTLKJkaG2Ua3C0dVzBTrB3XUN/BayLHSnWDJXa18oGwImP8hW5UlVLvSBv41jhA1NO2PeFFm6LXUM+YSImS94Z2+hRTDMsLfUWCI4bPEyYrjT12rfADT+Y27Xb9Z0JW+T4wotSq8kDQahmYFuGEQbtrbVNBJBLJpwp4iNAC8sYuzLJenXNB6PXsM7iJVsCk++zE454E1xVFQytyvKW9lhv4Ljb+aD4h81+8kd29fruiR3oM87QLHCL1xTrGOdgxBzAjAb5ONhoiErRVCZO12N12gYXDMGlw5WZx0zmLak1VJHKky1anr6jlCYfbN+btoU+QnF2DvrecEG1eLIXg==
+  template:
+    metadata:
+      creationTimestamp: null
+      name: mrsecret
+      namespace: default
+    type: Opaque
