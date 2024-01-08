@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: node-app
-        image: express:4.0
+        image: developer9844/express:4.0
         imagePullPolicy: Never
         resources:
           limits:
