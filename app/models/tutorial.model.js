@@ -1,6 +1,6 @@
 const sql = require("./db.js");
-const mysqlPool = require('./db');
-const redisClient = require('./redis');
+// const mysql2 = require('./db');
+// const redisClient = require('./redis');
 
 // constructor
 const Tutorial = function(tutorial) {
