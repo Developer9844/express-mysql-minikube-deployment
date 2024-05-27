@@ -2,8 +2,10 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: mysql
+  namespace: mysql
   labels:
     app: mysql
+    version: v1
 
 spec:
   selector:
@@ -21,12 +23,9 @@ spec:
           image: mysql:5.7
           env:
             - name: MYSQL_ROOT_PASSWORD
-              valueFrom:
-                secretKeyRef:
-                  name: mrsecret
-                  key: keyword
+              value: "root"
             - name: MYSQL_DATABASE
-              value: test_db
+              value: "test_db"
           ports:
             - containerPort: 3306
               name: mysql
@@ -39,9 +38,9 @@ spec:
           persistentVolumeClaim:
             claimName: mysql-pv-claim
 
-        - name: mysql-init-script
-          configMap:
-            name: mysql-init-script
+        # - name: mysql-init-script
+        #   configMap:
+        #     name: mysql-init-script
 
 ---
 
@@ -49,8 +48,10 @@ apiVersion: v1
 kind: Service
 metadata:
   name: mysql  # DNS name
+  namespace: mysql
   labels:
     app: mysql
+    version: v1
     
 spec:
   ports:

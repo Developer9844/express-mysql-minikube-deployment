@@ -1,0 +1,56 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: Gateway
+metadata:
+  name: node-app-gateway
+spec:
+  selector:
+    istio: ingressgateway 
+  servers:
+  - port:
+      number: 80
+      name: http
+      protocol: HTTP
+    hosts:
+    - "my-expressnode.com"
+
+  - port:
+      number: 80
+      name: http-2
+      protocol: HTTP
+    hosts:
+    - "my-python.com"
+
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: node-api
+spec:
+  hosts:
+  - "my-expressnode.com"
+  gateways:
+  - node-app-gateway
+  http:
+  - match:
+    - uri:
+        exact: /api/tutorials
+    route:
+    - destination:
+        host: node-app-svc.sample.svc.cluster.local
+        port:
+          number: 8080  
+      
+
+---
+# Istio provides mutual TLS (mTLS) for secure communication between services.
+# You can enable it by updating your Destination Rules.
+
+# apiVersion: networking.istio.io/v1alpha3
+# kind: DestinationRule
+# metadata:
+#   name: node-app-dr
+# spec:
+#   host: node-app-svc
+#   trafficPolicy:
+#     tls:
+#       mode: ISTIO_MUTUAL
